@@ -1,11 +1,10 @@
 "use client";
 import { useState } from "react";
-import {
-  checkOrderWebsite,
-  WebsiteMetadata,
-} from "./actions/check-order-website";
-import ReactJson from "react-json-view";
+// import ReactJson from "react-json-view";
 import Link from "next/link";
+import { checkOrderWebsite, WebsiteMetadata } from "./actions/check-order-website";
+import dynamic from "next/dynamic";
+const ReactJson = dynamic(() => import("react-json-view"), { ssr: false });
 
 export default function Home() {
   const [url, setUrl] = useState<string>(
@@ -28,8 +27,9 @@ export default function Home() {
         throw new Error("Failed to fetch metadata");
       }
       setMetadata(res);
-    } catch (e: any) {
-      setError(e.message);
+    } catch (e) {
+      console.log(e);
+      setError("Failed to fetch metadata");
     } finally {
       setLoading(false);
     }

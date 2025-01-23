@@ -85,7 +85,7 @@ interface WebsiteMetadata {
   description: string | null;
   keywords: string | null;
   canonical: string | null;
-  schema: any | null;
+  schema: object | null;
 }
 ```
 

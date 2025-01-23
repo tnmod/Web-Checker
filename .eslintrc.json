@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^(_|e|error)$",
+        "varsIgnorePattern": "^(_|React)$",
+        "caughtErrorsIgnorePattern": "^(_|e|error)$"
+      }
+    ],
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/no-unused-expressions": ["error", {
+      "allowShortCircuit": true,
+      "allowTernary": true,
+      "allowTaggedTemplates": true
+    }]
+  }
+}
